@@ -44,14 +44,25 @@
     console.log(`Left ${event.target.innerHTML} button`)
   })
 
-  //log the state of each bulb
-  let buttons = document.querySelector('.button')
+  //log the state of each bulb when you click the corresponding button
+  let controls = document.querySelector('#controls')
 
-  buttons.addEventListener("click", function(){
-    if(stopBtn.classList.contains('stop')) {
-      console.log()
-    }
-
+  controls.addEventListener("click", function(){
+      if (event.target && event.target.matches('#stopButton') && stopLight.classList.contains('stop')) {
+        console.log(`${stopBtn.innerHTML} bulb is on`)
+      } else if (event.target && event.target.matches('#stopButton') && stopLight.classList.contains('stop') !== true) {
+        console.log(`${stopBtn.innerHTML} bulb is off`)
+      } else if (event.target && event.target.matches('#slowButton') && slowLight.classList.contains('slow')) {
+        console.log(`${slowBtn.innerHTML} bulb is on`)
+      } else if (event.target && event.target.matches('#slowButton') && slowLight.classList.contains('slow') !== true) {
+        console.log(`${slowBtn.innerHTML} bulb is off`)
+      } else if (event.target && event.target.matches('#goButton') && goLight.classList.contains('go')) {
+        console.log(`${goBtn.innerHTML} bulb is on`)
+      } else if (event.target && event.target.matches('#goButton') && goLight.classList.contains('go') !== true) {
+        console.log(`${goBtn.innerHTML} bulb is off`)
+      } else {
+        return
+      }
   })
 
 })();
